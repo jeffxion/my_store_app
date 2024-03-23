@@ -1,0 +1,145 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+    height: 100%;
+  }
+  
+.gutter-box {
+    padding: 8px 0;
+    background: #00a0e9;
+}
+
+.mb-3 {
+    margin-bottom: 1rem;
+}
+
+.mb-5 {
+    margin-bottom: 3rem;
+}
+
+.center {
+    text-align: center;
+}
+
+.end {
+    text-align: end;
+}
+
+.mr-0 {
+    margin: 0;
+}
+
+li.ant-menu-item.ant-menu-item-only-child {
+    padding-left: 24px;
+}
+
+.ant-modal-body {
+    img {
+        width: 100%;
+        height: 300px;
+        object-fit: contain;
+    }
+    
+    .modal-price{
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .cart-img{
+        float: left;
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+    }
+
+    .ant-input-number{
+        margin-top: 15px;
+    }
+}
+
+.badge {
+    padding-left: 9px;
+    padding-right: 9px;
+    border-radius: 9px; // Using standard border-radius property
+    
+  }
+  
+  .label-warning[href],
+  .badge-warning[href] {
+    background-color: #c67605; // Using color directly, you can replace it with a variable if you're using one
+  }
+  
+  #lblCartCount {
+    font-size: 12px;
+    background: #ff0000; // Using color directly, you can replace it with a variable if you're using one
+    color: #fff; // Using color directly, you can replace it with a variable if you're using one
+    padding: 0 5px;
+    vertical-align: top;
+    margin-left: -10px;
+  }
+  
+
+#header {
+    .cart-icon {
+        color: white;
+        font-size: 25px;
+
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+
+    .ant-input-search{
+        margin: auto;
+        width: 400px;
+    }
+}
+
+#items {
+    .ant-card {
+        width: 200px;
+        margin-bottom: 1rem;
+
+        &:hover{
+            border-color: transparent;
+            box-shadow: 0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09);
+        }
+        
+    }
+
+    .ant-card-body {
+        height: 130px;
+    }
+
+    .ant-card-meta-title {
+        white-space: normal !important;
+        font-size: 15px !important;
+    }
+
+    .ant-card-meta-description {
+        font-weight: 900;
+    }
+    
+    img {
+        width:  150px;
+        height: 150px;
+        object-fit: contain;
+        margin: auto;
+        padding: 5px 0px;
+    }
+}
+
+
+@media (max-width: 767px) {
+    #header {
+    
+        .ant-input-search{
+            margin: auto;
+            width: 250px;
+        }
+    }
+}
