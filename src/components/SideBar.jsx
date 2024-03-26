@@ -2,9 +2,6 @@ import { Layout, Menu } from "antd";
 const { Sider } = Layout;
 
 const SideBar = ({ colorBgContain, sideBarItem, onClickFilter }) => {
-  const handleCatergory = (val) => {
-    onClickFilter(val);
-  }
 
   return (
     <>
@@ -24,7 +21,7 @@ const SideBar = ({ colorBgContain, sideBarItem, onClickFilter }) => {
             height: "100%",
             borderRight: 0,
           }}
-          onClick={(e) => handleCatergory(e.domEvent.target.innerHTML)}
+          onClick={(e) => onClickFilter(e.domEvent.target.innerHTML)}
           items={sideBarItem}
         />
       </Sider>

@@ -117,7 +117,7 @@ li.ant-menu-item.ant-menu-item-only-child {
 
     .ant-card-meta-title {
         white-space: normal !important;
-        font-size: 15px !important;
+        font-size: 15px;
     }
 
     .ant-card-meta-description {
@@ -133,6 +133,36 @@ li.ant-menu-item.ant-menu-item-only-child {
     }
 }
 
+@media (max-width: 576px) { 
+    #items {
+
+        .ant-col {
+            margin-inline-start: 0px;
+
+            &:nth-of-type(even) .ant-card{
+                margin-left: 10px;
+            }
+        }
+
+        .ant-card {
+            width: unset;  
+        }
+
+        .ant-card-body {
+            height: 100px;
+            padding: 7px;
+        }
+
+        img {
+            width: 100%;
+            height: 100px;
+        }
+
+        .ant-card-meta-title {
+            font-size: 13px;
+        }
+    }
+}
 
 @media (max-width: 767px) {
     #header {
@@ -140,6 +170,14 @@ li.ant-menu-item.ant-menu-item-only-child {
         .ant-input-search{
             margin: auto;
             width: 250px;
+        }
+    }
+}
+
+@media (max-width: 873px) {
+    .ant-modal-body {
+        .quantity-btn {
+            padding: 6px;
         }
     }
 }
