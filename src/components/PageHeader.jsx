@@ -6,7 +6,7 @@ import TotalModal from "./TotalModal";
 
 
 
-const PageHeader = ({ onValSearch, cart, onUpdateCartItemQuantity }) => {
+const PageHeader = ({ onValSearch, cart, onUpdateCartItemQuantity, onInputPriceManually, onEmptyCart }) => {
     const onSearch = (value) => {
         onValSearch(value);
     }
@@ -35,7 +35,9 @@ const PageHeader = ({ onValSearch, cart, onUpdateCartItemQuantity }) => {
                 />
                 <TotalModal 
                 selectedItems={cart.items}
-                onUpdateCartItemQuantity={onUpdateCartItemQuantity} 
+                onUpdateCartItemQuantity={onUpdateCartItemQuantity}
+                onInputPriceManually={onInputPriceManually}
+                onEmptyCart={onEmptyCart}
                 />
             </Header>
         </>

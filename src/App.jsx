@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
-import {Layout, theme } from "antd";
+import {Layout, theme, message } from "antd";
 const { Content } = Layout;
 
 import SideBar from "./components/SideBar";
@@ -22,6 +22,8 @@ const App = () => {
     const [shoppingCart, setShoppingCart] = useState({
         items: [],
     });
+
+    const [messageApi, contextHolder] = message.useMessage();
 
     const handleAddToCart = (id) => {
         setShoppingCart((prevShoppingCart) => {
@@ -46,9 +48,19 @@ const App = () => {
                 name: product.item_name,
                 price: product.price,
                 quantity: 1,
+                fix_price: product.fix_price
               });
             }
             
+           
+              
+                messageApi.open({
+                  type: 'success',
+                  content: 'Item added to cart',
+                });
+              
+            
+
             return {
               items: updatedItems,
             };
@@ -78,7 +90,37 @@ const App = () => {
             items: updatedItems,
           };
         });
-      }
+    }
+
+    const handleManualPriceInput = (inputPrice, id) => {
+      setShoppingCart((prevShoppingCart) => {
+        const updatedItems = [...prevShoppingCart.items];
+        const updatedItemIndex = updatedItems.findIndex(
+          (item) => item.id === id
+        );
+  
+        const updatedItem = {
+          ...updatedItems[updatedItemIndex],
+        };
+  
+        updatedItem.price = inputPrice;
+        updatedItems[updatedItemIndex] = updatedItem;
+  
+        return {
+          items: updatedItems,
+        };
+      });
+    }
+
+    const handleEmptyCart = () => {
+      setShoppingCart((prevShoppingCart) => {
+        const updatedItems = [...prevShoppingCart.items];
+        updatedItems.splice(0,updatedItems.length );
+        return {
+          items: updatedItems,
+        };
+      });
+    }
 
     const handleOnchange = (val) => {setSearch(val)}
 
@@ -89,11 +131,15 @@ const App = () => {
     } = theme.useToken();
 
     return (
+      <>
+        {contextHolder}
         <Layout>
             <PageHeader 
             onValSearch={handleOnchange} 
             cart={shoppingCart}
             onUpdateCartItemQuantity={handleUpdateCartItemQuantity}
+            onInputPriceManually={handleManualPriceInput}
+            onEmptyCart={handleEmptyCart}
             />
             <Layout>
                 <SideBar onClickFilter={handleOnclick} colorBgContain={colorBgContainer} sideBarItem={items2} />
@@ -120,6 +166,7 @@ const App = () => {
                 </Layout>
             </Layout>
         </Layout>
+        </>
     );
 };
 export default App;
